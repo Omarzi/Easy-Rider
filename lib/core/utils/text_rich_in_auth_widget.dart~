@@ -1,0 +1,41 @@
+import 'package:fast_delivery/core/utils/app_colors.dart';
+import 'package:fast_delivery/core/utils/app_text_styles.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+class TextRichInAuthWidget extends StatelessWidget {
+  const TextRichInAuthWidget({
+    super.key,
+    required this.text1,
+    required this.text2,
+    required this.recognizer,
+  });
+
+  final String text1;
+  final String text2;
+
+  final GestureRecognizer recognizer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(
+            text: text1,
+            style: TextStyles.bLgMedium.copyWith(
+              color: AppColors.gray700,
+            ),
+          ),
+          TextSpan(
+            recognizer: recognizer,
+            text: text2,
+            style: TextStyles.semiBold16.copyWith(
+              color: const Color(0xFF1B5E37),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

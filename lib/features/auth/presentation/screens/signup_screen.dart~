@@ -1,0 +1,85 @@
+import 'package:fast_delivery/core/utils/exports.dart';
+
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
+
+  static const String routeName = 'signup_screen';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: buildAppBar(
+        context: context,
+      ),
+      body: const SignupBody(),
+    );
+  }
+
+  AppBar buildAppBar({
+    required BuildContext context,
+    String? centerTitleText,
+  }) {
+    return AppBar(
+      backgroundColor: AppColors.whiteShade,
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.arrow_back,
+                  size: 24,
+                  color: AppColors.contentSecondary,
+                ),
+                const SizedBox(width: 5),
+                Text(
+                  'Back',
+                  style: TextStyles.sLgRegular.copyWith(
+                    color: AppColors.contentSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                centerTitleText ?? '',
+                style: TextStyles.hSmMedium,
+              ),
+            ),
+          ),
+          const SizedBox(width: 48),
+        ],
+      ),
+    );
+  }
+
+// AppBar buildAppBar({
+  //   required BuildContext context,
+  //   required Widget leading,
+  //   required Widget title,
+  // }) {
+  //   return AppBar(
+  //     backgroundColor: AppColors.whiteShade,
+  //     leading: IconButton(
+  //       onPressed: () => context.pop(),
+  //       icon: const Icon(
+  //         Icons.arrow_back,
+  //         size: 24,
+  //         color: AppColors.contentSecondary,
+  //       ),
+  //     ),
+  //     title: Text(
+  //       'Back',
+  //       style: TextStyles.sLgRegular.copyWith(
+  //         color: AppColors.contentSecondary,
+  //       ),
+  //     ),
+  //   );
+  // }
+}
